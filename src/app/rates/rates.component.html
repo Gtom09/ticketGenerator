@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+<div class="container mt-4">
+  <h3 class="text-center mb-4">ID Card Generator</h3>
+  <form [formGroup]="idCardForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label for="photo">Photo</label>
+      <input type="file" id="photo" class="form-control" (change)="onFileChange($event)">
+    </div>
+    <div class="form-group">
+      <label for="bloodGroup">Blood Group</label>
+      <select id="bloodGroup" class="form-control" formControlName="bloodGroup">
+        <option value="">Select Blood Group</option>
+        <option *ngFor="let group of bloodGroups" [value]="group">{{ group }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Generate ID Card</button>
+    <button class="btn btn-success mt-2" (click)="printIDCard()">Download PDF</button>
+  </form>
+
+  <div *ngIf="idCardGenerated" class="mt-4" #idCard>
+    <div class="card" style="width: 18rem; padding: 10px; border: 1px solid #000;">
+      <h4 class="text-center">SERVO</h4>
+      <div class="d-flex">
+        <img [src]="photoURL" class="card-img-left" alt="Photo" style="width: 50px; height: 50px; margin-right: 10px;">
+        <div>
+          <h5 class="card-title">{{ idCardForm.value.name }}</h5>
+          <p class="card-text">Blood Group: {{ idCardForm.value.bloodGroup }}</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

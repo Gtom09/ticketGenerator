@@ -1,0 +1,54 @@
+.rates-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 0;
+}
+
+.card {
+  border: 1px solid #dee2e6;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width:  200%; /* Full width */
+  height: 148.5mm; /* Half of A4 page height */
+}
+
+.table th {
+  text-align: center;
+}
+
+h3 {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px 40px; /* Increased padding */
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto 0 auto;
+  font-size: 2rem; /* Increased font size */
+}
+
+.btn-success {
+  font-size: 1.5rem; /* Increased font size */
+  padding: 1rem 3rem; /* Increased padding */
+}
+
+.card-img-left {
+  width: 1250px; /* Increased width */
+  height: 220px; /* Increased height */
+  margin-right: 20px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 2rem; /* Increased font size */
+}
+
+.card-text {
+  margin: 0;
+  font-size: 1.8rem; /* Increased font size */
+}

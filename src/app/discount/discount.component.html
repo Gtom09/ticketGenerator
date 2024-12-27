@@ -1,0 +1,253 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<h3 class="text-center mb-4 mt-4">TICKET DETAILS</h3>
+<div class="container mt-4 animate-container">
+  <form [formGroup]="discountForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('ticketNumber')}">
+        <label for="ticketNumber">Client Ticket Number <span class="required"></span></label>
+        <input type="text" id="ticketNumber" class="form-control" formControlName="ticketNumber"
+        placeholder="Enter Ticket Number" />
+        <div *ngIf="isInvalid('ticketNumber')" class="error-message">This field is required.</div>
+      </div>
+
+      
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('clientName')}">
+        <label for="clientName">Client Name <span class="required"></span></label>
+        <select type="text" id="clientName" class="form-control" formControlName="clientName" placeholder="Enter Client Name" >
+          <option value="" >Select Case Status</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+        <div *ngIf="isInvalid('clientName')" class="error-message">This field is required.</div>
+      </div>
+
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('ticketStatus')}">
+        <label for="ticketStatus">Ticket Status <span class="required"></span></label>
+        <input type="text" id="ticketStatus" class="form-control" formControlName="ticketStatus" value="OPEN" readonly />
+        <div *ngIf="isInvalid('ticketStatus')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+      
+      <div class="form-row animate-section">
+        <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('caseRaiseDate')}">
+          <label for="caseRaiseDate">Case Raise Date & Time <span class="required"></span></label>
+          <input type="datetime-local" id="caseRaiseDate" class="form-control" formControlName="caseRaiseDate"
+            placeholder="Case Raise Date" />
+          <div *ngIf="isInvalid('caseRaiseDate')" class="error-message">This field is required.</div>
+        </div>
+        <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('ackDate')}">
+          <label for="ackDate">Acknowledgement Date & Time<span class="required"></span></label>
+          <input type="datetime-local" id="ackDate" class="form-control" formControlName="ackDate"
+            placeholder="Enter Acknowledgement Date" />
+          <div *ngIf="isInvalid('ackDate')" class="error-message">This field is required.</div>
+        </div>
+      </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('reportedBy')}">
+        <label for="reportedBy">Reported By <span class="required"></span></label>
+        <input type="text" id="reportedBy" class="form-control" formControlName="reportedBy"
+            placeholder="Enter Reported By" />
+        <div *ngIf="isInvalid('reportedBy')" class="error-message">This field is required.</div>
+      </div>
+
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('clientEmail')}">
+        <label for="clientEmail">Customer Email <span class="required"></span></label>
+        <input type="text" id="clientEmail" class="form-control" formControlName="clientEmail" placeholder="Enter Client Email" />
+        <div *ngIf="isInvalid('clientEmail')" class="error-message">This field is required.</div>
+      </div>
+
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('clientPhone')}">
+        <label for="clientPhone">Customer Phone Number <span class="required"></span></label>
+        <input type="text" id="clientPhone" class="form-control" formControlName="clientPhone" placeholder="Enter Client Phone Number" />
+        <div *ngIf="isInvalid('clientPhone')" class="error-message">This field is required and must contain only 10-digits.</div>
+      </div>
+
+    </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('projectReference')}">
+        <label for="projectReference">Project Reference <span class="required"></span></label>
+        <select type="text" id="projectReference" class="form-control" formControlName="projectReference" placeholder="Enter Project Reference" >
+          <option value="" >Select Project Reference</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+        <div *ngIf="isInvalid('projectReference')" class="error-message">This field is required.</div>
+      </div>
+
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('deviceModel')}">
+        <label for="deviceModel">Device/Server Model <span class="required"></span></label>
+        <select type="text" id="deviceModel" class="form-control" formControlName="deviceModel" placeholder="Enter Device Model" >
+          <option value="" >Select Device Model</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+        <div *ngIf="isInvalid('deviceModel')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('deviceSl')}">
+        <label for="deviceSl">Device Serial Number<span class="required"></span></label>
+        <input type="text" id="deviceSl" class="form-control" formControlName="deviceSl"
+          placeholder="Enter Device SL" />
+        <div *ngIf="isInvalid('deviceSl')" class="error-message">This field is required.</div>
+      </div>
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('deviceDescription')}">
+        <label for="deviceDescription">Device Description<span class="required"></span></label>
+        <input type="text" id="deviceDescription" class="form-control" formControlName="deviceDescription"
+          placeholder="Enter Device Description" />
+        <div *ngIf="isInvalid('deviceDescription')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+
+    <div class="form-row animate-section">
+    <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('lconName')}">
+      <label for="lconName">LCON Name <span class="required"></span></label>
+      <input type="text" id="lconName" class="form-control" formControlName="lconName"
+        placeholder="Enter LCON Name" />
+      <div *ngIf="isInvalid('lconName')" class="error-message">This field is required.</div>
+    </div>
+
+    <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('siteContact')}">
+      <label for="siteContact">LCON Contact Number <span class="required"></span></label>
+      <input type="text" id="siteContact" class="form-control" formControlName="siteContact"
+        placeholder="Enter Site Contact Number" />
+      <div *ngIf="isInvalid('siteContact')" class="error-message">This field is required and must contain only 10-digits.</div>
+    </div>
+  </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('siteAddress')}">
+        <label for="siteAddress">Site Address <span class="required"></span></label>
+        <input type="text" id="siteAddress" class="form-control" formControlName="siteAddress"
+          placeholder="Enter Site Address " />
+        <div *ngIf="isInvalid('siteAddress')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('caseDescription')}">
+        <label for="caseDescription">Case/Problem Description <span class="required"></span></label>
+        <input type="text" id="caseDescription" class="form-control" formControlName="caseDescription" placeholder="Enter Case Description" />
+        <div *ngIf="isInvalid('caseDescription')" class="error-message">This field is required.</div>
+      </div>
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('noOfPart')}">
+        <label for="noOfPart">Number Of Parts Requested<span class="required">*</span></label>
+        <select id="noOfPart" class="form-control" formControlName="noOfPart" (change)="onPartsCountChange($event)">
+          <option value="">Select Number Of Parts</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <div *ngIf="isInvalid('noOfPart')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+    
+    <div formArrayName="parts">
+      <div *ngFor="let part of parts.controls; let i = index" [formGroupName]="i" class="form-row animate-section">
+        <div class="form-group col-md-4">
+          <label for="partName">Part {{ i + 1 }}:- Model<span class="required">*</span></label>
+          <input type="text" id="partName" class="form-control" formControlName="partName" placeholder="Enter Part {{ i + 1 }} Model">
+          <div *ngIf="isInvalid('partName')" class="error-message">This field is required.</div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="partSerialNumber">Part {{ i + 1 }}:- Serial Number<span class="required">*</span></label>
+          <input type="text" id="partSerialNumber" class="form-control" formControlName="partSerialNumber" placeholder="Enter Part {{ i + 1 }} SL Number">
+          <div *ngIf="isInvalid('partSerialNumber')" class="error-message">This field is required.</div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="partNumber">Part {{ i + 1 }}:- Part Number<span class="required">*</span></label>
+          <input type="text" id="partNumber" class="form-control" formControlName="partNumber" placeholder="Enter Part {{ i + 1 }}:- Part Number">
+          <div *ngIf="isInvalid('partNumber')" class="error-message">This field is required.</div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="partDescription">Part {{ i + 1 }}:- Description<span class="required">*</span></label>
+          <input type="text" id="partDescription" class="form-control" formControlName="partDescription" placeholder="Enter Part {{ i + 1 }} Description">
+          <div *ngIf="isInvalid('partDescription')" class="error-message">This field is required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('providerName')}">
+        <label for="providerName">Engineer Provider Name<span class="required">*</span></label>
+        <select type="text" id="providerName" class="form-control" formControlName="providerName" placeholder="Enter Provider Name" >
+          <option value="" >Select Provider Name</option>
+          <option value="A">A</option>
+        </select>
+        <div *ngIf="isInvalid('providerName')" class="error-message">This field is required.</div>
+      </div>      
+      <div class="form-group col-md-6" [ngClass]="{'has-error': isInvalid('noOfEngineer')}">
+        <label for="noOfEngineer">Select Number Of Engineers<span class="required">*</span></label>
+        <select id="noOfEngineer" class="form-control" formControlName="noOfEngineer" (change)="onEngineerCountChange($event)">
+          <option value="">Select Number Of Engineers</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <div *ngIf="isInvalid('noOfEngineer')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+      
+    <div formArrayName="engineers">
+      <div *ngFor="let engineer of engineers.controls; let i = index" [formGroupName]="i" class="form-row animate-section">
+        <div class="form-group col-md-4">
+          <label for="engineerName">Engineer {{ i + 1 }}:- Name<span class="required">*</span></label>
+          <input type="text" id="engineerName" class="form-control" formControlName="engineerName" placeholder="Enter Engineer {{ i + 1 }}:- Name">
+          <div *ngIf="isInvalid('engineerName')" class="error-message">This field is required.</div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="engineerNumber">Engineer {{ i + 1 }}:- Contact Number<span class="required">*</span></label>
+          <input type="text" id="engineerNumber" class="form-control" formControlName="engineerNumber" placeholder="Enter Engineer {{ i + 1 }}:- Contact Number">
+          <div *ngIf="isInvalid('engineerNumber')" class="error-message">This field is required and should contain 10-digits.</div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="engineerCost">Engineer {{ i + 1 }}:- Cost<span class="required">*</span></label>
+          <input type="text" id="engineerCost" class="form-control" formControlName="engineerCost" placeholder="Enter Engineer {{ i + 1 }}:- Cost">
+          <div *ngIf="isInvalid('engineerCost')" class="error-message">This field is required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-4">
+        <label for="remark">Complete Case Remark/Description<span class="required">*</span></label>
+        <input type="text" id="remark" class="form-control" formControlName="remark" placeholder="Enter Complete Case Remark/Description">
+        <div *ngIf="isInvalid('remark')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+
+    <div class="form-row animate-section">
+      <div class="form-group col-md-4">
+        <label for="svr">SVR (PDF)<span class="required">*</span></label>
+        <input type="file" class="form-control" id="svr" formControlName="svr" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <div *ngIf="isInvalid('svr')" class="error-message">This field is required.</div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="deliveryChallen">Delivery Challen<span class="required">*</span></label>
+        <input type="file" class="form-control" id="deliveryChallen" formControlName="deliveryChallen" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <div *ngIf="isInvalid('deliveryChallen')" class="error-message">This field is required.</div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="casePic">Case PIC<span class="required">*</span></label>
+        <input type="file" class="form-control" id="casePic" formControlName="casePic" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <div *ngIf="isInvalid('casePic')" class="error-message">This field is required.</div>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" class="btn btn-primary mt-2 next-button" (click)="onBack()">BACK</button>
+      <button type="button" class="btn btn-primary mt-2 next-button" (click)="onUpdate()">UPDATE</button>
+      <button type="submit" class="btn btn-primary mt-2 next-button">CLOSE TICKET</button>
+    </div>
+    
+  </form>
+</div>
+ 

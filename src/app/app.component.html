@@ -1,0 +1,36 @@
+<div class="container" *ngIf="showHeader">
+  <ul class="nav nav-tabs" id="formTabs">
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/policy']">
+        <i class="fas fa-file-alt"></i> Generate Ticket
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/category']">
+        <i class="fa fa-eye" aria-hidden="true"></i> Track Ticket
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/summary']">
+        <i class="fa fa-database" aria-hidden="true"></i> Full Ticket History
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/rates']">
+        <i class="fa fa-id-card" aria-hidden="true"></i> Generate ID-Cards
+      </a>
+    </li>
+    <!-- <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/discount']">
+        <i class="fas fa-percent"></i> Discount
+      </a>
+    </li> -->
+    <li class="nav-item">
+      <button class="nav-link btn btn-link" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</button>
+    </li>
+  </ul>
+  </div>
+
+
+  <router-outlet></router-outlet>
+
