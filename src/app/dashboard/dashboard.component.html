@@ -1,3 +1,134 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
+
+<div class="min-h-full">
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center">
+            <div class="shrink-0">
+              <img class="size-8" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
+              </div>
+            </div>
+          </div>
+  
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="md:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
+        </div>
+      </div>
+        </div></div>
+    </nav>
+  
+    <header class="bg-white shadow">
+      <div class="mx-auto max-w-7xl px-2 py-3 sm:px-2 lg:px-4">
+        <h1 class="text-2xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+      </div>
+    </header>
+    <main>
+      <div class="mx-auto max-w-7xl px-2 py-3 sm:px-3 lg:px-4">
+        
+
+        <div class="bg-white py-1 sm:py-10">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+              <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+          
+                <!-- Div 1: Generate Tickets -->
+                <a href="#" class="relative group rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                  <div class="absolute inset-0 bg-white opacity-20 group-hover:opacity-30 transition-all"></div>
+                  <div class="relative px-8 pb-5 pt-8">
+                    <p class="text-lg font-medium text-gray-950 tracking-tight text-center">GENERATE TICKETS</p>
+                    <p class="mt-2 text-sm text-gray-600 text-center">Create and submit support tickets for issues or requests.</p>
+                  </div>
+                  <div class="flex items-center justify-center py-6">
+                    <i class="fa fa-list-alt text-gray-900 text-[110px]"></i> <!-- Font Awesome Ticket Icon -->
+                  </div>
+                </a>
+          
+                <!-- Div 2: Track Tickets -->
+                <a href="#" class="relative group rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                  <div class="absolute inset-0 bg-white opacity-20 group-hover:opacity-30 transition-all"></div>
+                  <div class="relative px-8 pb-5 pt-8">
+                    <p class="text-lg font-medium text-gray-950 tracking-tight text-center">TRACK TICKETS</p>
+                    <p class="mt-2 text-sm text-gray-600 text-center">View and track the status of your open tickets.</p>
+                  </div>
+                  <div class="flex items-center justify-center py-6">
+                    <i class="fa fa-eye text-gray-900 text-[110px]"></i> <!-- Font Awesome Eye Icon -->
+                  </div>
+                </a>
+          
+                <!-- Div 3: Security -->
+                <a href="#" class="relative group rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                  <div class="absolute inset-0 bg-white opacity-20 group-hover:opacity-30 transition-all"></div>
+                  <div class="relative px-8 pb-5 pt-8">
+                    <p class="text-lg font-medium text-gray-950 tracking-tight text-center">SECURITY</p>
+                    <p class="mt-2 text-sm text-gray-600 text-center">Security features to protect your data and platform.</p>
+                  </div>
+                  <div class="flex items-center justify-center py-6">
+                    <i class="fa fa-database text-gray-900 text-[110px]"></i> <!-- Font Awesome Database Icon -->
+                  </div>
+                </a>
+          
+                <!-- Div 4: Powerful APIs -->
+                <a href="#" class="relative group rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                  <div class="absolute inset-0 bg-white opacity-20 group-hover:opacity-30 transition-all"></div>
+                  <div class="relative px-8 pb-5 pt-8">
+                    <p class="text-lg font-medium text-gray-950 tracking-tight text-center">POWERFUL APIs</p>
+                    <p class="mt-2 text-sm text-gray-600 text-center">Leverage robust APIs for seamless integration.</p>
+                  </div>
+                  <div class="flex items-center justify-center py-6">
+                    <i class="fa fa-address-card text-gray-900 text-[110px]"></i> <!-- Font Awesome Address Card Icon -->
+                  </div>
+                </a>
+          
+                <!-- Div 5: Analytics -->
+                <a href="#" class="relative group rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                  <div class="absolute inset-0 bg-white opacity-20 group-hover:opacity-30 transition-all"></div>
+                  <div class="relative px-8 pb-5 pt-8">
+                    <p class="text-lg font-medium text-gray-950 tracking-tight text-center">ANALYTICS</p>
+                    <p class="mt-2 text-sm text-gray-600 text-center">Analyze data and trends for better decision-making.</p>
+                  </div>
+                  <div class="flex items-center justify-center py-6">
+                    <i class="fa fa-sitemap text-gray-900 text-[110px]"></i> <!-- Font Awesome Sitemap Icon -->
+                  </div>
+                </a>
+          
+                <!-- Div 6: Documentation -->
+                <a href="#" class="relative group rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                  <div class="absolute inset-0 bg-white opacity-20 group-hover:opacity-30 transition-all"></div>
+                  <div class="relative px-8 pb-5 pt-8">
+                    <p class="text-lg font-medium text-gray-950 tracking-tight text-center">DOCUMENTATION</p>
+                    <p class="mt-2 text-sm text-gray-600 text-center">Access detailed documentation and guides for the platform.</p>
+                  </div>
+                  <div class="flex items-center justify-center py-6">
+                    <i class="fa fa-sitemap text-gray-900 text-[110px]"></i> <!-- Font Awesome Sitemap Icon -->
+                  </div>
+                </a>
+          
+              </div>
+            </div>
+          </div>
+          
+          
+
+
+      </div>
+    </main>
+  </div>
+  
