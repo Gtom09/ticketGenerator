@@ -26,3 +26,7 @@ body {
         background-position: top;
     }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
