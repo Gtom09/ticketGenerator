@@ -11,16 +11,16 @@ import { FullSummaryComponent } from './full-summary/full-summary.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 export const routes: Routes = [
 
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'category', component: CategoryComponent,canActivate: [AuthGuard] },
   { path: 'summary', component: SummaryComponent,canActivate: [AuthGuard] },
-  { path: 'rates', component: RatesComponent,canActivate: [AuthGuard] },
+  { path: 'rates', component: RatesComponent},
   //{ path: 'discount', component: DiscountComponent ,canActivate: [AuthGuard]},
-  { path: 'policy', component: PolicyComponent,canActivate: [AuthGuard] },
+  { path: 'policy', component: PolicyComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'discount/:ticketNumber', component: DiscountComponent,canActivate: [AuthGuard] },
+  { path: 'discount/:ticketNumber', component: DiscountComponent},
   { path: 'full-summary/:ticketNumber', component: FullSummaryComponent,canActivate: [AuthGuard] },
-  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:'dashboard',component:DashboardComponent},
   
  
 ];
