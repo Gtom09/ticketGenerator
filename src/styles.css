@@ -24,7 +24,7 @@ body {
     body {
         background-size: cover;
         background-position: top;
-    }
+    } 
 }
 
 @tailwind base;

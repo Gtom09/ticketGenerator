@@ -11,7 +11,7 @@
   border: 1px solid #dee2e6;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width:  200%; /* Full width */
+  width:  200%; 
   height: 148.5mm; /* Half of A4 page height */
 }
 

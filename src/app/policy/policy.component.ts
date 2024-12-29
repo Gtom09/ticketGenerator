@@ -12,7 +12,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./policy.component.css'],
   standalone: true,
   imports: [ReactiveFormsModule, NgClass, NgIf],
-  
+   
 })
 export class PolicyComponent implements OnInit {
 

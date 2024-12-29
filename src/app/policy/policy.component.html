@@ -3,7 +3,7 @@
 <h3 class="text-center mb-4 mt-4">Generate Ticket</h3>
 <div class="container mt-4 animate-container">
   <form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
-
+  
     <div class="form-row animate-section">
       <div class="form-group col-md-4" [ngClass]="{'has-error': isInvalid('ticketNumber')}">
         <label for="ticketNumber">Client Ticket Number <span class="required">*</span></label>

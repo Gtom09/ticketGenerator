@@ -13,7 +13,7 @@ export class RatesComponent {
   idCardForm: FormGroup;
   photoURL: string | ArrayBuffer | null = null;
   idCardGenerated = false;
-  bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+  bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+'];
 
   @ViewChild('idCard') idCard!: ElementRef;
 

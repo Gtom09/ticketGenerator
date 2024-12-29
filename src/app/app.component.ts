@@ -36,3 +36,4 @@ export class AppComponent implements OnInit {
     setTimeout(() => window.location.reload(), 1);
   }
 }
+ 

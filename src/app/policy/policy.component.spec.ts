@@ -20,4 +20,4 @@ describe('PolicyComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); 

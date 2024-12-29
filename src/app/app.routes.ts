@@ -22,7 +22,7 @@ export const routes: Routes = [
   { path: 'full-summary/:ticketNumber', component: FullSummaryComponent,canActivate: [AuthGuard] },
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
   
-
+ 
 ];
 
 export const appRouterProviders = [
