@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.showHeader = !['/', '/register','/policy','/dashboard','/category','/summary','/rates'].includes(event.urlAfterRedirects);
+        this.showHeader = !['/', '/register','/policy','/dashboard','/category','/summary','/rates','/discount'].includes(event.urlAfterRedirects);
       }
     });
   }
