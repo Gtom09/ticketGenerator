@@ -146,7 +146,6 @@ export class DiscountComponent implements OnInit {
     if (this.discountForm.valid) {
       const discountData = this.discountForm.getRawValue(); // Get form data including disabled fields
       discountData.ticketStatus = 'CLOSED'; // Set ticket status to CLOSED
-      console.log('Form Submitted', discountData);
       this.http.post(`http://localhost:8080/discount/save`, discountData).subscribe(
         (response) => {
           alert('Ticket closed successfully');

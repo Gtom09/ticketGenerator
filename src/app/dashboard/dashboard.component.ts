@@ -12,7 +12,6 @@ export class DashboardComponent {
 onLogout() {
   localStorage.removeItem('isAuthenticated');
   sessionStorage.removeItem('isAuthenticated');
-  localStorage.removeItem('userData');
   this.router.navigate(['/']).then(() => {
     window.location.reload();
   });

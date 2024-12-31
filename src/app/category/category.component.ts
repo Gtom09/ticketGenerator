@@ -1,4 +1,4 @@
-import { NgClass, NgIf, NgFor, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -25,6 +25,7 @@ export class CategoryComponent implements OnInit {
   categoryForm!: FormGroup;
   completePolicyData: any;
   tickets: Ticket[] = [];
+  isLoading: boolean = true;
 
   constructor(
     private router: Router,
@@ -43,9 +44,11 @@ export class CategoryComponent implements OnInit {
     this.http.get<Ticket[]>('http://localhost:8080/discount/all').subscribe(
       (data) => {
         this.tickets = data;
+        this.isLoading = false;  // Set to false once data is loaded
       },
       (error) => {
         console.error('Error fetching tickets', error);
+        this.isLoading = false;  // Ensure loading is stopped even on error
       }
     );
   }
@@ -62,4 +65,5 @@ export class CategoryComponent implements OnInit {
       },
     });
   }
+  
 }

@@ -1,0 +1,18 @@
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin {
+    animation: spin 1.5s linear infinite;
+  }
+  
+  .spinner-border {
+    border-top-color: transparent;  /* Makes the top border transparent to create the spinning effect */
+    border-radius: 50%;
+  }
+  

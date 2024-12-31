@@ -20,6 +20,7 @@ export class PolicyComponent implements OnInit {
   policyData: any;
   categoryData: any;
   completePolicyData: any;
+  isLoading: boolean = false;
 
   constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) {}
 
@@ -61,10 +62,10 @@ export class PolicyComponent implements OnInit {
 
   onSubmit(): void {
     if (this.policyForm.valid) {
-      alert("NEW TICKET GENERATED");
-
+      this.isLoading = true
       this.http.post('http://localhost:8080/discount/save', this.policyForm.value).subscribe(
         response => {
+          alert("NEW TICKET GENERATED");
           this.router.navigate(['/category']);
         },
         error => {

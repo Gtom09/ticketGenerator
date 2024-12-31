@@ -46,7 +46,6 @@ export class LoginComponent {
           });;
         } else if (resp['role'] === 'agent') {
           this.userService.setUserDetails(response);
-          console.log('Navigating to dashboard');
           this.router.navigate(['/dashboard']).then(() => {
             this.loading = false;
           });;

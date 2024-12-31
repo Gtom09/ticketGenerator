@@ -24,6 +24,7 @@ export class SummaryComponent implements OnInit {
   summaryForm!: FormGroup;
   completePolicyData: any;
   tickets: Ticket[] = [];
+  isLoading: boolean = true;
 
   constructor(
     private router: Router,
@@ -42,9 +43,11 @@ export class SummaryComponent implements OnInit {
     this.http.get<Ticket[]>('http://localhost:8080/discount/fetch/allClosed').subscribe(
       (data) => {
         this.tickets = data;
+        this.isLoading = false;
       },
       (error) => {
         console.error('Error fetching tickets', error);
+        this.isLoading = false;
       }
     );
   }

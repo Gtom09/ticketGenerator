@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -6,18 +7,23 @@ import { Injectable } from '@angular/core';
 export class UserService {
   private isAuthenticated = false;
 
-  constructor() {
-    this.isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-    console.log('UserService: Initial isAuthenticated status:', this.isAuthenticated);
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      // Only access localStorage in the browser
+      this.isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+      console.log('UserService: Initial isAuthenticated status:', this.isAuthenticated);
+    }
   }
 
   register(username: string, password: string) {
-   
+    // Registration logic goes here
   }
 
   login(username: string, password: string): boolean {
     this.isAuthenticated = true; // Set to true after successful login
-    localStorage.setItem('isAuthenticated', 'true');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('isAuthenticated', 'true');
+    }
     console.log('UserService: isAuthenticated set to true after login');
     return this.isAuthenticated;
   }
@@ -29,16 +35,19 @@ export class UserService {
 
   logout() {
     this.isAuthenticated = false;
-    localStorage.removeItem('isAuthenticated');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('isAuthenticated');
+    }
     console.log('UserService: isAuthenticated set to false after logout');
   }
 
-  // Add this method
   setUserDetails(details: any) {
     // Store user details as needed
     console.log('User details set:', details);
     this.isAuthenticated = true;
-    localStorage.setItem('isAuthenticated', 'true');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('isAuthenticated', 'true');
+    }
     console.log('UserService: isAuthenticated set to true in setUserDetails');
   }
 }
