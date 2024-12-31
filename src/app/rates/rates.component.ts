@@ -1,56 +1,64 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';  // Import CommonModule for *ngIf and other directives
+import html2canvas from 'html2canvas';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rates',
   standalone: true,
+  imports: [FormsModule, CommonModule],  // Add CommonModule here for *ngIf and other directives
   templateUrl: './rates.component.html',
-  styleUrls: ['./rates.component.css'],
-  imports: [ReactiveFormsModule, CommonModule]
+  styleUrls: ['./rates.component.css']
 })
 export class RatesComponent {
-  idCardForm: FormGroup;
-  photoURL: string | ArrayBuffer | null = null;
-  idCardGenerated = false;
-  bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+'];
+[x: string]: any;
+  name: string = '';
+  phoneNumber: string = '';
+  bloodGroup: string = '';
+  ticketId: string = '';
+  profilePic: File | null = null;
+  imageUrl: string = '';
+  idCardVisible: boolean = false;
+  constructor(private router: Router) { }
 
-  @ViewChild('idCard') idCard!: ElementRef;
+  companyLogoUrl = 'Assets/servodox.png';  // Path to your company logo
 
-  constructor(private fb: FormBuilder) {
-    this.idCardForm = this.fb.group({
-      name: ['', Validators.required],
-      photo: [null, Validators.required],
-      bloodGroup: ['', Validators.required]
-    });
-  }
-
-  onFileChange(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
+  // Handle file input for the profile picture
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
       const reader = new FileReader();
       reader.onload = () => {
-        this.photoURL = reader.result;
-        this.idCardForm.patchValue({ photo: file });
+        this.imageUrl = reader.result as string;
       };
       reader.readAsDataURL(file);
     }
   }
 
-  onSubmit(): void {
-    if (this.idCardForm.valid) {
-      this.idCardGenerated = true;
-    } else {
-      alert('Please fill in all required fields.');
-    }
+  // Generate the ID card after the user clicks submit
+  generateIdCard() {
+    this.idCardVisible = true;
   }
 
-  printIDCard(): void {
-    const printContent = this.idCard.nativeElement.innerHTML;
-    const originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContent;
-    window.print();
-    document.body.innerHTML = originalContents;
-    window.location.reload(); // Reload to restore the original content
+  // Function to download the generated ID card as an image
+  downloadIdCard() {
+    const idCardElement = document.getElementById('idCard');
+    if (idCardElement) {
+      html2canvas(idCardElement).then((canvas) => {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = 'id_card.png';  // Set download name
+        link.click();  // Trigger download
+      }).catch((error) => {
+        console.error("Error generating ID card image:", error);
+      });
+    }
   }
+  
+  onback() {
+    this.router.navigate(['/dashboard']);
+  }
+  
+  
 }
