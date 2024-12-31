@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 interface Ticket {
+  lconName: String;
+  clientPhone: String;
+  dueDate: String;
   ticketNumber: string;
   caseDescription: string;
   ackDate:String;

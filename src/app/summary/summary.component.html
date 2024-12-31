@@ -7,7 +7,7 @@
 </div>
 
 <!-- Header Section -->
-<h3 class="text-center mb-24 mt-24 text-4xl font-extrabold text-gray-900">Full Ticket History</h3>
+<h3 class="text-center mb-24 mt-24 text-4xl font-extrabold text-gray-900">Track Open Tickets</h3>
 
 <!-- Container for Tickets -->
 <div class="container mx-auto px-8 mt-16">
@@ -16,12 +16,32 @@
     <!-- Ticket Card Loop -->
     <div *ngFor="let ticket of tickets" class="group relative max-w-md bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
       <div class="p-6">
-        <h5 class="text-3xl font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors duration-300">Ticket: {{ ticket.ticketNumber }}</h5>
-        <p class="text-gray-600 mb-2 text-lg"><b>{{ ticket.ticketNumber }}</b></p>
-        <p class="text-gray-700 text-base mb-4 text-lg">{{ ticket.caseDescription }}</p>
-        <div class="button-container">
-          <button class="w-full bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 transform transition-all duration-300 group hover:scale-105 group-hover:shadow-lg" (click)="updateDiscounts(ticket.ticketNumber)" aria-label="View Closed Ticket">
-            VIEW CLOSED TICKET
+        <!-- New Design Elements -->
+        <div class="flex items-center justify-between mb-4">
+          <h5 class="text-3xl font-bold text-gray-800 group-hover:text-teal-600 transition-colors duration-300">Ticket: {{ ticket.ticketNumber }}</h5>
+          <span class="text-sm text-gray-500">{{ ticket.ackDate }}</span>
+        </div>
+        <p class="text-gray-700 text-base mb-4"><B>Client Ticket: {{ ticket.caseDescription }}</B></p>
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-user text-teal-600"></i>
+            <span class="text-gray-600">{{ ticket.lconName}}</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-calendar-alt text-teal-600"></i>
+            <span class="text-gray-600">{{ ticket.clientPhone }}</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-user text-teal-600"></i>
+            <span class="text-gray-600">{{ ticket.caseDescription}}</span>
+          </div>
+        </div>
+        
+        <div class="mt-4">
+          <button class="w-full bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 transform transition-all duration-300 group hover:scale-105 group-hover:shadow-lg" (click)="updateDiscounts(ticket.ticketNumber)" aria-label="Check Ticket">
+            CHECK CLOSED TICKET
           </button>
         </div>
       </div>
