@@ -13,7 +13,7 @@ interface Ticket {
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgFor],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css'],
 })
@@ -52,7 +52,7 @@ export class CategoryComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/policy'], {
+    this.router.navigate(['/dashboard'], {
       state: {
         policyData: this.policyData,
         categoryData: this.categoryForm.value,

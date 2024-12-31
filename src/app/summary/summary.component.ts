@@ -51,7 +51,7 @@ export class SummaryComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/policy'], {
+    this.router.navigate(['/dashboard'], {
       state: {
         policyData: this.policyData,
         summaryData: this.summaryForm.value,
