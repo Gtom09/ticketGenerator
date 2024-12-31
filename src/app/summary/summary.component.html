@@ -7,7 +7,7 @@
 </div>
 
 <!-- Header Section -->
-<h3 class="text-center mb-24 mt-24 text-4xl font-extrabold text-gray-900">Track Open Tickets</h3>
+<h3 class="text-center mb-24 mt-24 text-4xl font-extrabold text-gray-900">All Closed Tickets</h3>
 
 <div *ngIf="isLoading" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
   <!-- Advanced Glowing Spinner -->
@@ -36,13 +36,13 @@
             <span class="text-gray-600">{{ ticket.lconName}}</span>
           </div>
           <div class="flex items-center space-x-2">
-            <i class="fas fa-calendar-alt text-teal-600"></i>
+            <i class="fa fa-phone text-teal-600"></i>
             <span class="text-gray-600">{{ ticket.clientPhone }}</span>
           </div>
         </div>
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center space-x-2">
-            <i class="fas fa-user text-teal-600"></i>
+            <i class="fa fa-edit text-teal-600"></i>
             <span class="text-gray-600">{{ ticket.caseDescription}}</span>
           </div>
         </div>

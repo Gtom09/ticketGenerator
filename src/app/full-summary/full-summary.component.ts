@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class FullSummaryComponent implements OnInit {
   discountForm!: FormGroup;
   ticketNumber!: string;
+  isLoading: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -79,8 +80,8 @@ export class FullSummaryComponent implements OnInit {
   fetchTicketDetails(ticketNumber: string): void {
     this.http.get<any>(`http://localhost:8080/discount/fetch/${ticketNumber}`).subscribe(
       (data) => {
-        console.log('Fetched ticket details:', data);
         this.discountForm.patchValue(data);
+        this.isLoading = false;
       },
       (error) => {
         console.error('Error fetching ticket details', error);
@@ -147,6 +148,6 @@ export class FullSummaryComponent implements OnInit {
   }
 
   onBack(): void {
-    this.router.navigate(['/category']); 
+    this.router.navigate(['/summary']); 
   }
 }

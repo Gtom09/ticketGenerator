@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class DiscountComponent implements OnInit {
   discountForm!: FormGroup;
   ticketNumber!: string;
+  isLoading: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -27,6 +28,7 @@ export class DiscountComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.ticketNumber = params['ticketNumber'];
       this.fetchTicketDetails(this.ticketNumber);
+      
     });
 
     this.discountForm.get('noOfEngineer')?.valueChanges.subscribe(value => {
@@ -81,6 +83,7 @@ export class DiscountComponent implements OnInit {
       (data) => {
         console.log('Fetched ticket details:', data);
         this.discountForm.patchValue(data);
+        this.isLoading = false;
       },
       (error) => {
         console.error('Error fetching ticket details', error);
@@ -144,6 +147,7 @@ export class DiscountComponent implements OnInit {
 
   onSubmit(): void {
     if (this.discountForm.valid) {
+      this.isLoading = true;
       const discountData = this.discountForm.getRawValue(); // Get form data including disabled fields
       discountData.ticketStatus = 'CLOSED'; // Set ticket status to CLOSED
       this.http.post(`http://localhost:8080/discount/save`, discountData).subscribe(
@@ -154,6 +158,7 @@ export class DiscountComponent implements OnInit {
         (error) => {
           console.error('Error closing ticket', error);
           if (error.status === 409) {
+            this.isLoading = false;
             alert('Conflict occurred while closing the ticket. Please try again.');
           }
         }
@@ -169,6 +174,7 @@ export class DiscountComponent implements OnInit {
   }
 
   onUpdate(): void {
+    this.isLoading = true;
     const discountData = this.discountForm.getRawValue(); // Get form data including disabled fields
     this.http.put(`http://localhost:8080/discount/update`, discountData).subscribe(
       (response) => {
@@ -177,6 +183,7 @@ export class DiscountComponent implements OnInit {
         this.fetchTicketDetails(this.ticketNumber);
       },
       (error) => {
+        this.isLoading = false;
         console.error('Error updating ticket', error);
       }
     );

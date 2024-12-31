@@ -1,7 +1,20 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-<h3 class="text-center mb-4 mt-4">TICKET DETAILS</h3>
+<div class="absolute top-1 left-1">
+  <img class="w-60 h-46 filter invert" src="Assets/servodox.png" alt="Your Company">
+</div>
+
+<!-- Header Section -->
+<h3 class="text-center mb-24 mt-24 text-4xl font-extrabold text-gray-900">Closed Ticket Details</h3>
 <div class="container mt-4 animate-container">
+
+  <div *ngIf="isLoading" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <!-- Advanced Glowing Spinner -->
+    <div class="relative w-24 h-24">
+      <div class="absolute w-24 h-24 border-4 border-t-transparent border-b-transparent border-l-4 border-r-4 border-gradient-to-r from-teal-600 via-indigo-600 to-purple-600 rounded-full animate-spin animation-delay-2000"></div>
+    </div>
+  </div>
+
+
   <form [formGroup]="discountForm" (ngSubmit)="onSubmit()">
 
     <div class="form-row animate-section">

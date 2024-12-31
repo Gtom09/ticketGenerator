@@ -5,7 +5,7 @@ import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink,CommonModule],
+  imports: [RouterOutlet,CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
