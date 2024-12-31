@@ -16,11 +16,11 @@ export const routes: Routes = [
   { path: 'summary', component: SummaryComponent,canActivate: [AuthGuard] },
   { path: 'rates', component: RatesComponent,canActivate: [AuthGuard]},
   //{ path: 'discount', component: DiscountComponent ,canActivate: [AuthGuard]},
-  { path: 'policy', component: PolicyComponent },
+  { path: 'policy', component: PolicyComponent,canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'discount/:ticketNumber', component: DiscountComponent,canActivate: [AuthGuard]},
   { path: 'full-summary/:ticketNumber', component: FullSummaryComponent,canActivate: [AuthGuard] },
-  {path:'dashboard',component:DashboardComponent},
+  {path:'dashboard',component:DashboardComponent,canActivate: [AuthGuard] },
   
  
 ];

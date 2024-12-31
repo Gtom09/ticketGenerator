@@ -15,6 +15,9 @@ import { interval } from 'rxjs';
    
 })
 export class PolicyComponent implements OnInit {
+goBack() {
+ this.router.navigate(['/dashboard']);
+}
 
   policyForm!: FormGroup;
   policyData: any;
@@ -87,6 +90,5 @@ export class PolicyComponent implements OnInit {
 
   autoSave(): void {
     localStorage.setItem('policyData', JSON.stringify(this.policyForm.value));
-    console.log('Form data auto-saved');
   }
 }
