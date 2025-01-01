@@ -27,6 +27,7 @@ export class FullSummaryComponent implements OnInit {
     this.initializeForm();
     this.route.params.subscribe(params => {
       this.ticketNumber = params['ticketNumber'];
+      this.isLoading = false;
       this.fetchTicketDetails(this.ticketNumber);
     });
 
@@ -85,6 +86,8 @@ export class FullSummaryComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching ticket details', error);
+        this.isLoading = false;
+        alert("Error fetching ticket details");
       }
     );
   }
