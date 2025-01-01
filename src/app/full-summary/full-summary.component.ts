@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-discount',
@@ -27,7 +29,6 @@ export class FullSummaryComponent implements OnInit {
     this.initializeForm();
     this.route.params.subscribe(params => {
       this.ticketNumber = params['ticketNumber'];
-      this.isLoading = false;
       this.fetchTicketDetails(this.ticketNumber);
     });
 
@@ -79,7 +80,7 @@ export class FullSummaryComponent implements OnInit {
   }
 
   fetchTicketDetails(ticketNumber: string): void {
-    this.http.get<any>(`http://localhost:8080/discount/fetch/${ticketNumber}`).subscribe(
+    this.http.get<any>(`${environment.apiUrl}/discount/fetch/${ticketNumber}`).subscribe(
       (data) => {
         this.discountForm.patchValue(data);
         this.isLoading = false;

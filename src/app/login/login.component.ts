@@ -3,10 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { AdminService } from '../admin.service';
-
+import { environment } from '../../environments/environment';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   standalone: true,
@@ -33,7 +32,7 @@ export class LoginComponent {
     this.loading = true;
     const user = { username: this.username, password: this.password };
     let resp: { [key: string]: any };
-    this.http.get(`http://localhost:8080/users/${this.username}/${this.password}`).subscribe(
+    this.http.get(`${environment.apiUrl}/users/${this.username}/${this.password}`).subscribe(
       response => {
         resp = response;
         console.log('User logged in successfully', response);
@@ -43,14 +42,13 @@ export class LoginComponent {
           console.log('Navigating to dashboard: admin');
           this.router.navigate(['/dashboard']).then(() => {
             this.loading = false;
-          });;
+          });
         } else if (resp['role'] === 'agent') {
           this.userService.setUserDetails(response);
           this.router.navigate(['/dashboard']).then(() => {
             this.loading = false;
-          });;
-        }
-        else {
+          });
+        } else {
           this.errorMessage = 'Login failed. Please check your credentials and try again.';
           this.loading = false;
         }

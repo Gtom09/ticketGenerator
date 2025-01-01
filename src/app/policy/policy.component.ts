@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { interval } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 
 
 @Component({
@@ -66,7 +68,7 @@ goBack() {
   onSubmit(): void {
     if (this.policyForm.valid) {
       this.isLoading = true
-      this.http.post('http://localhost:8080/discount/save', this.policyForm.value).subscribe(
+      this.http.post(`${environment.apiUrl}/discount/save`, this.policyForm.value).subscribe(
         response => {
           alert("NEW TICKET GENERATED");
           this.router.navigate(['/category']);

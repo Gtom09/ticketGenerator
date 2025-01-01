@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';  // Import CommonModule for *ngIf and other directives
 import html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-rates',

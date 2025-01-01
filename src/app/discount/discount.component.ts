@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-discount',
@@ -79,7 +80,7 @@ export class DiscountComponent implements OnInit {
   }
 
   fetchTicketDetails(ticketNumber: string): void {
-    this.http.get<any>(`http://localhost:8080/discount/fetch/${ticketNumber}`).subscribe(
+    this.http.get<any>(`${environment.apiUrl}/discount/fetch/${ticketNumber}`).subscribe(
       (data) => {
         console.log('Fetched ticket details:', data);
         this.discountForm.patchValue(data);
@@ -150,7 +151,7 @@ export class DiscountComponent implements OnInit {
       this.isLoading = true;
       const discountData = this.discountForm.getRawValue(); // Get form data including disabled fields
       discountData.ticketStatus = 'CLOSED'; // Set ticket status to CLOSED
-      this.http.post(`http://localhost:8080/discount/save`, discountData).subscribe(
+      this.http.post(`${environment.apiUrl}/discount/save`, discountData).subscribe(
         (response) => {
           alert('Ticket closed successfully');
           this.router.navigate(['/category']);
@@ -176,7 +177,7 @@ export class DiscountComponent implements OnInit {
   onUpdate(): void {
     this.isLoading = true;
     const discountData = this.discountForm.getRawValue(); // Get form data including disabled fields
-    this.http.put(`http://localhost:8080/discount/update`, discountData).subscribe(
+    this.http.put(`${environment.apiUrl}/discount/update`, discountData).subscribe(
       (response) => {
         alert('Ticket updated successfully');
         this.router.navigate(['/category']);

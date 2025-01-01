@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 interface Ticket {
   lconName: String;
@@ -41,7 +42,7 @@ export class CategoryComponent implements OnInit {
   }
 
   fetchTickets() {
-    this.http.get<Ticket[]>('http://localhost:8080/discount/all').subscribe(
+    this.http.get<Ticket[]>(`${environment.apiUrl}/discount/all`).subscribe(
       (data) => {
         this.tickets = data;
         this.isLoading = false;  // Set to false once data is loaded
