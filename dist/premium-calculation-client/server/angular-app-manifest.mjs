@@ -4,39 +4,39 @@ export default {
   inlineCriticalCss: true,
   routes: [
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/category"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/summary"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/rates"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/policy"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/register"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/discount/:ticketNumber"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/full-summary/:ticketNumber"
   },
   {
-    "renderMode": 1,
+    "renderMode": 0,
     "route": "/dashboard"
   }
 ],
